@@ -1,0 +1,7 @@
+C:\Users\Віктор\Desktop\НУВГП\Lab_2\bin\Debug\Lab_2.exe.config
+C:\Users\Віктор\Desktop\НУВГП\Lab_2\bin\Debug\Lab_2.exe
+C:\Users\Віктор\Desktop\НУВГП\Lab_2\bin\Debug\Lab_2.pdb
+C:\Users\Віктор\Desktop\НУВГП\Lab_2\obj\Debug\Lab_2.csprojAssemblyReference.cache
+C:\Users\Віктор\Desktop\НУВГП\Lab_2\obj\Debug\Lab_2.csproj.CoreCompileInputs.cache
+C:\Users\Віктор\Desktop\НУВГП\Lab_2\obj\Debug\Lab_2.exe
+C:\Users\Віктор\Desktop\НУВГП\Lab_2\obj\Debug\Lab_2.pdb
