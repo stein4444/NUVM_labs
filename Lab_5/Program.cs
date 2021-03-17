@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab_5
 {
-
-
-    class BaseLineFunction
+    abstract class BaseLineFunction
     {
         public int aO;
         public int a1;
@@ -33,7 +31,7 @@ namespace Lab_5
             b1 = B1;
         }
 
-        public virtual void SetCoefficients(int a0, int A1, int b0, int B1)
+        public void SetCoefficients(int a0, int A1, int b0, int B1)
         {
             this.aO = a0;
             this.a1 = A1;
@@ -106,15 +104,13 @@ namespace Lab_5
 
         public override void Calculate()
         {
-            // проверка все ли коэффициенты заданы  
             if (calc == true)
             {
                 double F;
-                
+
                 F = (a2 * Math.Pow(xO, 2) + a1 * xO + aO) / (b2 * Math.Pow(xO, 2) + b1 * xO + bO);
                 Console.WriteLine($"F(x) = {(float)F}");
             }
-            // если нет вылет програмы 
             else Console.WriteLine("Error please fill b1, b0, b2 correctly");
         }
 
@@ -124,11 +120,11 @@ namespace Lab_5
     {
         static void Main(string[] args)
         {
-            //    BaseLineFunction bs = new BaseLineFunction();
-            //    bs.SetCoefficients(1,4,2,3);
-            //    bs.Show();
-            //    bs.xO = 3;
-            //    bs.Calculate();
+            //BaseLineFunction bs = new BaseLineFunction();
+            //bs.SetCoefficients(1,4,2,3);
+            //bs.Show();
+            //bs.xO = 3;
+            //bs.Calculate();
 
             FractionalFunction fractionalFunction = new FractionalFunction();
             fractionalFunction.SetCoefficients(1, 3, 4, 5, 6, 7);
