@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab_5
 {
-    abstract class BaseLineFunction
+    class BaseLineFunction
     {
         public int aO;
         public int a1;
@@ -31,17 +31,20 @@ namespace Lab_5
             b1 = B1;
         }
 
-        public void SetCoefficients(int a0, int A1, int b0, int B1)
+        public virtual void SetCoefficients()
         {
-            this.aO = a0;
-            this.a1 = A1;
-            this.bO = b0;
-            this.b1 = B1;
+            Console.WriteLine("Enter a0: ");
+            this.aO = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter a1: ");
+            this.a1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter b0: ");
+            this.bO = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter b1: ");
+            this.b1 = int.Parse(Console.ReadLine());
 
             if (bO == 0 && b1 == 0)
-            {
                 Console.WriteLine("b0 та b1 не можуть одночасно дорівнювати 0");
-            }
+
             else calc = true;
         }
 
@@ -84,15 +87,17 @@ namespace Lab_5
             a2 = A2;
             b2 = B2;
         }
-        public void SetCoefficients(int a0, int A1, int b0, int B1, int A2, int B2)
+        public override void SetCoefficients()
         {
-            base.SetCoefficients(a0, A1, b0, B1);
-            a2 = A2;
-            b2 = B2;
-            if (b0 == 0 || B1 == 0 && b2 == 0)
-            {
+            base.SetCoefficients();
+            Console.WriteLine("Enter a2: ");
+            this.a2 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter b2: ");
+            this.b2 = int.Parse(Console.ReadLine());
+
+            if (bO == 0 || b1 == 0 && b2 == 0)
                 Console.WriteLine("b0, b1, b2 не можуть одночасно дорівнювати 0");
-            }
+
             else calc = true;
         }
         public override void Show()
@@ -126,11 +131,35 @@ namespace Lab_5
             //bs.xO = 3;
             //bs.Calculate();
 
-            FractionalFunction fractionalFunction = new FractionalFunction();
-            fractionalFunction.SetCoefficients(1, 3, 4, 5, 6, 7);
-            fractionalFunction.Show();
-            fractionalFunction.xO = 2;
-            fractionalFunction.Calculate();
+            //FractionalFunction fractionalFunction = new FractionalFunction();
+            //fractionalFunction.SetCoefficients();
+            //fractionalFunction.Show();
+            //fractionalFunction.xO = 2;
+            //fractionalFunction.Calculate();
+
+            int userSelect;
+            BaseLineFunction baseobj = new BaseLineFunction();
+            do
+            {
+                Console.WriteLine("Enter '0' if you want to work with BaseLineFunction and '1' - with FractionalFunction");
+                userSelect = Convert.ToInt32(Console.ReadLine());
+                if (userSelect == 0)
+                {
+                    baseobj = new BaseLineFunction();
+                    baseobj.SetCoefficients();
+                }
+                else if (userSelect == 1)
+                {
+                    baseobj = new FractionalFunction();
+                }
+                else
+                {
+                    return;
+                }
+                baseobj.SetCoefficients();
+                baseobj.Show();
+                baseobj.Calculate();
+            } while (true);
         }
     }
 }
